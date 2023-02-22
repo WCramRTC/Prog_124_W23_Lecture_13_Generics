@@ -10,9 +10,14 @@ namespace Prog_124_W23_Lecture_13_Generics
     {
         int _yardsThrown;
 
-        public FootballPlayer(string name, string number, int yardsThrown) : base(name, number)
+        public FootballPlayer(string name, string number, double salary, int yardsThrown) : base(name, number, salary)
         {
             _yardsThrown = yardsThrown;
+        }
+
+      public FootballPlayer()
+        {
+
         }
 
         public int YardsThrown { get => _yardsThrown; set => _yardsThrown = value; }

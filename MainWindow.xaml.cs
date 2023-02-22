@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prog_124_W23_Lecture_13_Generics.Notes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,30 +21,105 @@ namespace Prog_124_W23_Lecture_13_Generics
     /// </summary>
     public partial class MainWindow : Window
     {
-        TeamRoster<Player> seahawks = new TeamRoster<Player>();
+        TeamRoster<FootballPlayer> seahawks = new TeamRoster<FootballPlayer>();
+
+        TeamRoster<BaseBallPlayer> mariners = new TeamRoster<BaseBallPlayer>();
+
         public MainWindow()
         {
+
+
+            // b = 6
+            // a = 8
+
+            // temp = a; temp = 6
+            // a = b  a = b ; a = 8;
+            // b = temp ; b = 6
+
+            // a = 8
+            // b = 6
+
+            string name1 = "Bander";
+            string name2 = "Sam";
+
+            string temp = name1;
+            name1 = name2;
+            name2 = temp;
+
+            // name1 = Sam
+            // name2 = Bander
+
+            FootballPlayer p1 = new FootballPlayer();
+            FootballPlayer p2 = new FootballPlayer();
+            BaseballPlayer p3 = new BaseballPlayer("w", "6", 5);
+            int a = 6;
+            int b = 8;
+
+            ChangeA(a);
+
+            Swap(ref a, ref b);
+            Swap(ref p1,ref p2);
+
+            // value and reference
+        }
+
+        // Generic Method
+        public void Swap<T>(ref T t1,ref T t2) 
+        {
+            T temp = t1;
+            t1 = t2;
+            t2 = temp;
+        }
+
+        public void ChangeA(int a)
+        {
+            a = 10;
+        }
+
+        public void AddingPlayersToTeamRoster()
+        {
             InitializeComponent();
-            seahawks.AddPlayer(new FootballPlayer("Bander", "10", 30000000));
+            seahawks.AddPlayer(new FootballPlayer("Bander", "10", 1000000000, 30000000));
+            seahawks.AddPlayer(new FootballPlayer("Will", "7", 10000, 10));
+
+            MessageBox.Show(seahawks.TeamSalary().ToString());
+
+            mariners.AddPlayer(new BaseBallPlayer("Sam", "8", 10000000, 80000));
+
+        }
+
+        public void Example()
+        {
 
             // Boxing ( box and unbox )
-            Player player = new FootballPlayer("Will", "7", 19);
-            
+            //Player player = new FootballPlayer("Will", "7", 19);
 
             // Casting in programming means converting from one type to another
 
             int age = (int)54.7; // Explict Casting
             double alsoAge = 54; // Implicit Casting
 
-            FootballPlayer teamPlayers = (FootballPlayer)player;
-            MessageBox.Show(player2.GetType().ToString());
+            //FootballPlayer teamPlayers = (FootballPlayer)player;
+
 
             // object
             // player
             // football player
 
-            
+            //FootballPlayer fbPlayer = new FootballPlayer("Zack", "7", 2000);
 
+            // Boxing - We box an instance up as an object
+            //object fbObject = fbPlayer;
+
+            //FootballPlayer playerObject = fbObject as FootballPlayer;
+
+            object number = 5;
+            FootballPlayer playerObject = number as FootballPlayer;
+
+            if (playerObject == null)
+            {
+                MessageBox.Show("Number was not a football player");
+            }
         }
     }
 }

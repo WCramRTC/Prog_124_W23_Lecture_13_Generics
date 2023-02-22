@@ -16,6 +16,19 @@ namespace Prog_124_W23_Lecture_13_Generics
             _roster.Add(player);
         }
 
+        public double TeamSalary()
+        {
+            double sum = 0;
+            // foreach (type itemName in list)
+            foreach(T playerObject in _roster)
+            {
+                sum += playerObject.Salary;
+            }
+
+            return sum;
+        }
+
+
 
 
     }

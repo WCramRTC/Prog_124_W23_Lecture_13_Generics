@@ -10,11 +10,18 @@ namespace Prog_124_W23_Lecture_13_Generics
     {
         string _name;
         string _number;
+        double _salary;
 
-        public Player(string name, string number)
+        public Player(string name, string number, double salary)
         {
             _name = name;
             _number = number;
+            _salary = salary;
+        }
+
+        public Player()
+        {
+
         }
 
         public void PerformAction()
@@ -24,5 +31,6 @@ namespace Prog_124_W23_Lecture_13_Generics
 
         public string Name { get => _name; set => _name = value; }
         public string Number { get => _number; set => _number = value; }
+        public double Salary { get => _salary; set => _salary = value; }
     }
 }
