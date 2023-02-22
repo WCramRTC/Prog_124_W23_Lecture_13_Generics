@@ -20,9 +20,30 @@ namespace Prog_124_W23_Lecture_13_Generics
     /// </summary>
     public partial class MainWindow : Window
     {
+        TeamRoster<Player> seahawks = new TeamRoster<Player>();
         public MainWindow()
         {
             InitializeComponent();
+            seahawks.AddPlayer(new FootballPlayer("Bander", "10", 30000000));
+
+            // Boxing ( box and unbox )
+            Player player = new FootballPlayer("Will", "7", 19);
+            
+
+            // Casting in programming means converting from one type to another
+
+            int age = (int)54.7; // Explict Casting
+            double alsoAge = 54; // Implicit Casting
+
+            FootballPlayer teamPlayers = (FootballPlayer)player;
+            MessageBox.Show(player2.GetType().ToString());
+
+            // object
+            // player
+            // football player
+
+            
+
         }
     }
 }
